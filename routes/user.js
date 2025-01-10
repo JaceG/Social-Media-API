@@ -1,7 +1,7 @@
 // imports
 const express = require('express');
 const { body } = require('express-validator');
-const { create } = require('../controllers/user');
+const { create, update, remove, getAll } = require('../controllers/user');
 
 // Single routing
 const router = express.Router();
@@ -19,5 +19,25 @@ router.post(
 	],
 	create
 );
+
+router.put(
+	'/:id',
+	[
+		body('username')
+			.trim()
+			.not()
+			.isEmpty()
+			.withMessage('Please enter your username.'),
+	],
+	update
+);
+
+router.delete(
+	'/:id',
+
+	remove
+);
+
+router.get('/all', getAll);
 
 module.exports = router;
