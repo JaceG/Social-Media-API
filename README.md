@@ -58,11 +58,12 @@ The API provides the following endpoints:
 ## Testing
 Import the provided Insomnia collection for API testing.
 
+## Credits
+
+Credits: This project was created as part of a coding bootcamp challenge. - Sources and References: Portions of the code and guidance were provided with assistance from ChatGPT, Tutors, and my Instructors.
+
 ## Walkthrough Video
 [Link to Video Demonstration](https://drive.google.com/file/d/1VNyI7fumdOaYgRF91ddvDEMG6P-s06rD/view?usp=sharing)
-
-## License
-MIT License
 
 ## Questions
 For any questions, please contact me:
