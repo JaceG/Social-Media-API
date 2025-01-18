@@ -1,12 +1,20 @@
-// imports
+// Import required dependencies
 const express = require('express');
 const { body } = require('express-validator');
-const { create, update, remove, getAll } = require('../controllers/user');
+const {
+	create,
+	update,
+	remove,
+	getAll,
+	getUserById,
+	addFriend,
+	removeFriend,
+} = require('../controllers/user');
 
-// Single routing
 const router = express.Router();
 
-// Register Route with Password Hashing
+// POST /api/users - Create new user
+// Validates username and email
 router.post(
 	'/',
 	[
@@ -20,6 +28,8 @@ router.post(
 	create
 );
 
+// PUT /api/users/:id - Update user
+// Validates username
 router.put(
 	'/:id',
 	[
@@ -32,12 +42,19 @@ router.put(
 	update
 );
 
-router.delete(
-	'/:id',
-
-	remove
-);
-
+// GET /api/users/all - Get all users
 router.get('/all', getAll);
+
+// GET /api/users/:id - Get single user
+router.get('/:id', getUserById);
+
+// DELETE /api/users/:id - Delete user
+router.delete('/:id', remove);
+
+// Friend management routes
+router
+	.route('/:userId/friends/:friendId')
+	.post(addFriend) // Add friend
+	.delete(removeFriend); // Remove friend
 
 module.exports = router;
